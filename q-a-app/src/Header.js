@@ -3,10 +3,24 @@ import './Header.css'
 
 class Header extends Component{
   render(){
-    return <div><header className="Main-header">
-      <h1> Header </h1>
-    </header></div>
-
+    return (
+      <div className="row py-2">
+        <div className="col-5">
+          <h1> University Q&A App </h1>
+        </div>
+        <div className="col-5">
+          <h1> Another Placeholder </h1>
+        </div>
+        <div className="col-2">
+          <button
+            className="LoginButton"
+            type="button"
+            class="btn btn-outline-primary btn-lg w-75">
+            Login
+          </button>
+        </div>
+      </div>
+    )
   }
 }
 
