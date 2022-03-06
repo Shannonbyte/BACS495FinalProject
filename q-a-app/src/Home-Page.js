@@ -7,16 +7,17 @@ class HomePage extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { apiResponse: '' };
+    this.state = { apiResponse: "" };
 }
 
 callAPI() {
     fetch('http://localhost:9000/test')
         .then(res => res.text())
         .then(res => this.setState({ apiResponse: res }));
+
 }
 
-componentWillMount() {
+componentDidMount() {
     this.callAPI();
 }
 
@@ -25,7 +26,9 @@ componentWillMount() {
       <div className = 'homepage'>
         <Header/>
         <Body/>
-        <p className='api-response'>;{this.state.apiResponse}</p>
+        <div>
+          <p>{this.state.apiResponse}</p>
+        </div>
         <Footer/>
       </div>
     )

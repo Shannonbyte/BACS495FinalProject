@@ -3,7 +3,7 @@ var router = express.Router();
 
 var users =[
   {"id":1, "name":"Shannon"},
-  {"id":2, "name":"Butt"}
+  {"id":2, "name":"Bud"}
 ]
 
 
