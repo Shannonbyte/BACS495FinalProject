@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Body from './Body.js';
+import './HomePage.css'
+
 
 class HomePage extends Component {
 
@@ -11,7 +13,7 @@ class HomePage extends Component {
 }
 
 callAPI() {
-    fetch('http://localhost:9000/test')
+    fetch('http://localhost:9000/users')
         .then(res => res.text())
         .then(res => this.setState({ apiResponse: res }));
 
@@ -27,7 +29,7 @@ componentDidMount() {
         <Header/>
         <Body/>
         <div>
-          <p>{this.state.apiResponse}</p>
+          <h2>{this.state.apiResponse}</h2>
         </div>
         <Footer/>
       </div>
