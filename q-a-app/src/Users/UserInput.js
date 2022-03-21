@@ -18,13 +18,13 @@ function UserInput(props) {
     props.notifyParent();
   }
   return (
-    <div>
-      <p>
+    <div className="m-5">
+      <h3 className="text-lg-left">
         Enter new Users below:<br/>
         <input type="text" id="id" onChange={e=>setId(e.target.value)}/><br/>
         <input type="text" id="name" onChange={e=>setName(e.target.value)}/><br/>
         <button value="Insert New User" onClick={createUser}>Insert New User</button>
-      </p>
+      </h3>
     </div>
   );
 }
