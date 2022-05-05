@@ -4,6 +4,7 @@ import './Header.css'
 class Header extends Component{
   render(){
     return (
+      <div className="BigHeader">
       <div className="row py-2">
         <div className="col-5">
           <h1> University Q&A App </h1>
@@ -19,6 +20,7 @@ class Header extends Component{
             Login
           </button>
         </div>
+      </div>
       </div>
     )
   }
