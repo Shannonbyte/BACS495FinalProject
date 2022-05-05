@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import './PostDisplay.css'
 
 function PostDisplay(props) {
 
@@ -27,13 +28,29 @@ function PostDisplay(props) {
             .then(console.log("finished"))
       }
 
+  const answerQuestion = (id, answers) =>{
+    var newAnswer = answers == null ? 1 : answers + 1;
+    var updatepost = {'id':id, 'answers' : newAnswer}
+    fetch('http://localhost:9000/posts',
+        {
+            method:'PUT',
+            body: JSON.stringify(updatepost),
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+            }
+        })
+        .then(res => res.json())
+        .then(setUpdate(update + 1))
+        .then(console.log("finished"))
+  }
+
 
   return (
     <div className="">
-      <h3>Questions</h3>
-      <div>
+      <h3 className="mb-2">Questions</h3>
+      <div className="Questions">
         {props.posts.map(q =>
-            <h4 key={q.id}>
+            <h4 className="indie-q" key={q.id}>
                 {q.title} - (Votes: {q.votes == null ? "0":q.votes})
                 <button value="Vote" onClick={() => votePost(q.id, q.votes)}>Vote</button>
                 <h5>

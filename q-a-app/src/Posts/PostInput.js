@@ -24,11 +24,11 @@ function PostInput(props) {
       <form>
         <h3 className="text-lg-left">Ask a New Question Below:</h3>
         <div className="form-group">
-          <label className="" for="title"> Title: </label>
+          <label className="h3" for="title"> Title: </label>
           <textarea className="form-control" id="title" onChange={e=>setTitle(e.target.value)}></textarea>
-          <label className="" for="content"> Content: </label>
-          <textarea className="form-control" id="content" onChange={e=>setContent(e.target.value)}></textarea>
-          <button className="py-2" value="Create New Post" onClick={createPost}>Create Post</button>
+          <label className="h3" for="content"> Content: </label>
+          <textarea className="form-control mb-2" id="content" onChange={e=>setContent(e.target.value)}></textarea>
+          <button className="btn btn-outline-primary btn-lg py-2" value="Create New Post" onClick={createPost}>Create Post</button>
         </div>
       </form>
     </div>
