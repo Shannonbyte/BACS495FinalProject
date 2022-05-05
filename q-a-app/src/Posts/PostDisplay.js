@@ -5,6 +5,7 @@ function PostDisplay(props) {
 
     const [posts, setPosts] = useState([]);
     const [update, setUpdate] = useState(0);
+    const [answer, setAnswer] = useState(0);
 
     useEffect(() => {
         fetch('http://localhost:9000/posts')
@@ -30,7 +31,7 @@ function PostDisplay(props) {
 
   const answerQuestion = (id, answers) =>{
     var newAnswer = answers == null ? 1 : answers + 1;
-    var updatepost = {'id':id, 'answers' : newAnswer}
+    var updatepost = {'_id':id, 'answers' : newAnswer}
     fetch('http://localhost:9000/posts',
         {
             method:'PUT',
@@ -57,9 +58,14 @@ function PostDisplay(props) {
                   {q.content}
                 </h5>
                 <div>
-                Answers
+                Answer a question here:
+                <textarea className="form-control mb-2" id="newAnswer" onChange={e=>setAnswer(e.target.value)}></textarea>
+                <button value="Submit Answer" className="btn btn-outline-primary btn-lg py-2 mb-2" onClick={() => answerQuestion(q.id, setAnswer)}>Submit Answer</button>
                 <h5>
-                pp
+                Answers:
+                </h5>
+                <h5>
+                {q.answers}
                 </h5>
                 </div>
             </h4>)
