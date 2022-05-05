@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Posts from './Posts';
 import './Body.css'
 
 class Body extends Component{
@@ -11,6 +12,7 @@ class Body extends Component{
           </div>
           <div class="col-7">
             <h2>Main Content (placeholder for posts)</h2>
+            <Posts/>
           </div>
           <div class="col">
             <h2>Right Sidebar</h2>
