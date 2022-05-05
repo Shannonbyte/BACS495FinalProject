@@ -18,7 +18,7 @@ function UserInput(props) {
     props.notifyParent();
   }
   return (
-    <div className="m-5">
+    <div className="">
       <h3 className="text-lg-left">
         Enter new Users below:<br/>
         <input type="text" id="id" onChange={e=>setId(e.target.value)}/><br/>

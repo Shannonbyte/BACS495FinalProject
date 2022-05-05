@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import Posts from './Posts';
+import Users from './Users';
 import './Body.css'
+
 
 class Body extends Component{
   render(){
     return (
       <div className="container-justify-content-start">
         <div className="row">
-          <div className="col">
-            <h2>Sidebar</h2>
+          <div className="col m-2">
+            <Users/>
           </div>
-          <div class="col-7">
-            <h2>Main Content (placeholder for posts)</h2>
+          <div class="col-7 m-2">
             <Posts/>
           </div>
-          <div class="col">
+          <div class="col m-2">
             <h2>Right Sidebar</h2>
           </div>
         </div>

@@ -3,7 +3,7 @@ function PostDisplay(props) {
     <div className="m-5">
       <h3>
         Posts<br/>
-        {props.posts.map(u => <li key={u.id}>{u.id} - {u.name}</li>)}
+        {props.posts.map(u => <li key={u.id}>{u.id} - {u.title}</li>)}
       </h3>
     </div>
   );

@@ -19,14 +19,17 @@ function PostInput(props) {
     props.notifyParent();
   }
   return (
-    <div className="m-5">
-      <h3 className="text-lg-left">
-        Create a Post below:<br/>
-        <input type="text" id="id" onChange={e=>setId(e.target.value)}/><br/>
-        <input type="text" id="title" onChange={e=>setTitle(e.target.value)}/><br/>
-        <input type="text" id="content" onChange={e=>setContent(e.target.value)}/><br/>
-        <button value="Create New Post" onClick={createPost}>Create Post</button>
-      </h3>
+    <div className="">
+      <form>
+        <h3 className="text-lg-left">Ask a New Question Below:</h3>
+        <div className="form-group">
+          <label className="" for="title"> Title: </label>
+          <textarea className="form-control" id="title" onChange={e=>setTitle(e.target.value)}></textarea>
+          <label className="" for="content"> Content: </label>
+          <textarea className="form-control" id="content" onChange={e=>setContent(e.target.value)}></textarea>
+          <button className="py-2" value="Create New Post" onClick={createPost}>Create Post</button>
+        </div>
+      </form>
     </div>
   );
 }
