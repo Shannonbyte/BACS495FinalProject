@@ -29,16 +29,23 @@ function PostDisplay(props) {
 
 
   return (
-    <div className="m-5">
-      <h3>
-        Posts<br/>
-        {props.posts.map(u => <li key={u.id}>{u.id} - {u.title}</li>)}
-      </h3>
+    <div className="">
+      <h3>Questions</h3>
       <div>
         {props.posts.map(q =>
-            <li key={q.id}>{q.title} - {q.content} (Votes: {q.votes == null ? "0":q.votes})
+            <h4 key={q.id}>
+                {q.title} - (Votes: {q.votes == null ? "0":q.votes})
                 <button value="Vote" onClick={() => votePost(q.id, q.votes)}>Vote</button>
-            </li>)
+                <h5>
+                  {q.content}
+                </h5>
+                <div>
+                Answers
+                <h5>
+                pp
+                </h5>
+                </div>
+            </h4>)
         }
       </div>
     </div>

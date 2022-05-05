@@ -4,8 +4,9 @@ function PostInput(props) {
   const [title, setTitle] = useState(0);
   const [content, setContent] = useState(0);
   const [id, setId] = useState(0);
+  const [votes, setVotes] = useState(0);
   const createPost = (e) =>{
-    var insert = {'id': id, 'title': title, 'content': content}
+    var insert = {'id': id, 'title': title, 'content': content, 'votes':votes}
     fetch('http://localhost:9000/posts',
         {
           method:'POST',

@@ -29,12 +29,25 @@ router.post('/', function(req, res, next) {
   const post = {
     "id": req.body.id,
     "title": req.body.title,
-    "content": req.body.content
+    "content": req.body.content,
+    "votes": req.body.votes
   }
   console.log(post);
   var db = req.app.locals.db;
   db.collection("posts").insertOne(post);
   res.send("Post inserted");
+});
+
+router.patch("/", function(req, res, next){
+  const post = {
+    "id": req.body.id
+
+  }
+  var db = req.app.locals.db;
+  db.collection("posts").updateOne(post
+                                      , {$set: {"votes": req.body.votes}}
+                                      , {upsert: true});
+  res.send("vote counted");
 });
 
 module.exports = router;
