@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
+import Posts from './Posts';
+import Users from './Users';
 import './Body.css'
 
+
+
+
 class Body extends Component{
+
+
   render(){
     return (
       <div className="container-justify-content-start">
         <div className="row">
-          <div className="col">
-            <h2>Sidebar</h2>
+          <div className="col m-2">
+            <h5>
+            Place for additional features
+            Like Searching, categories, or social features
+            </h5>
           </div>
-          <div class="col-7">
-            <h2>Main Content (placeholder for posts)</h2>
+          <div class="col-7 m-2">
+            <Posts/>
           </div>
-          <div class="col">
-            <h2>Right Sidebar</h2>
+          <div class="col m-2">
+            <Users/>
           </div>
         </div>
       </div>
