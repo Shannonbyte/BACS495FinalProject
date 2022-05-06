@@ -62,8 +62,9 @@ function PostDisplay(props) {
       <div className="Questions">
         {props.posts.map(q =>
             <div className="indie-q" key={q.id}>
-                {q.title} - (Votes: {q.votes == null ? "0":q.votes})
-                <button value="Vote" onClick={() => votePost(q.id, q.votes)}>Vote</button>
+                <h5> {q.title} - (Votes: {q.votes == null ? "0":q.votes})
+                <button className="btn btn-outline-primary btn-sm py-2 mb-2"value="Vote" onClick={() => votePost(q.id, q.votes)}>^</button>
+                </h5>
                 <h5>
                   {q.content}
                 </h5>
