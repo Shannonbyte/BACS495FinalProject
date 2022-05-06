@@ -59,14 +59,16 @@ router.patch("/", function(req, res, next){
 
 
 /*PUT answers into Posts*/
-router.put("/", function(req, res, next){
+router.patch("/answers", function(req, res, next){
+  console.log('here');
   const post = {
     "id":req.body.id
   }
   var db = req.app.locals.db;
 
+
   db.collection("posts").updateOne(post
-  , {$set: {"answers":req.body.answers}}
+  , {$set: {"answers": req.body.answers}}
   , {upsert:true});
   res.send("answer submitted")
 

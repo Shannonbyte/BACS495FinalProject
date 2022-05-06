@@ -6,8 +6,12 @@ function Posts() {
   const [posts, setPosts] = useState([]);
   const [update, setUpdate] = useState(0);
   const [count, setCount] = useState(0);
+  const [countinit, setCountinit] =useState(false);
 
   useEffect(() => {
+    if(!countinit){
+
+    }
     fetch('http://localhost:9000/posts')
       .then(res => res.json())
       .then(data => setPosts(data))
@@ -21,7 +25,7 @@ function Posts() {
 
   return (
     <div>
-      <PostInput notifyParent = {rerender} count={count} setCount={setCount}/>
+      <PostInput notifyParent = {rerender} count={posts.length} setCount={setCount}/>
       <PostDisplay posts={posts}/>
     </div>
   );
