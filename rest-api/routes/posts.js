@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+
+
 /* GET Posts listing. */
 router.get('/', function(req, res, next) {
   var db = req.app.locals.db;
@@ -8,6 +10,7 @@ router.get('/', function(req, res, next) {
   cursor.toArray().then(c => res.json(c));
 });
 
+/*GET Posts by ID*/
 router.get('/:id', function(req, res, next) {
   var db = req.app.locals.db;
   var id = req.params.id;
@@ -25,19 +28,23 @@ router.get('/:id', function(req, res, next) {
 
 });
 
+/*POST Posts*/
 router.post('/', function(req, res, next) {
   const post = {
     "id": req.body.id,
     "title": req.body.title,
     "content": req.body.content,
-    "votes": req.body.votes
+    "votes": req.body.votes,
+    "answers":req.body.answers
   }
   console.log(post);
   var db = req.app.locals.db;
   db.collection("posts").insertOne(post);
   res.send("Post inserted");
+
 });
 
+/*PATCH votes for Posts*/
 router.patch("/", function(req, res, next){
   const post = {
     "id": req.body.id
@@ -45,11 +52,13 @@ router.patch("/", function(req, res, next){
   }
   var db = req.app.locals.db;
   db.collection("posts").updateOne(post
-                                      , {$set: {"votes": req.body.votes}}
-                                      , {upsert: true});
+  , {$set: {"votes": req.body.votes}}
+  , {upsert: true});
   res.send("vote counted");
 });
 
+
+/*PUT answers into Posts*/
 router.put("/", function(req, res, next){
   const post = {
     "id":req.body.id

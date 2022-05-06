@@ -5,8 +5,9 @@ function PostInput(props) {
   const [content, setContent] = useState(0);
   const [id, setId] = useState(0);
   const [votes, setVotes] = useState(0);
+
   const createPost = (e) =>{
-    var insert = {'id': id, 'title': title, 'content': content, 'votes':votes}
+    var insert = {'id': props.count, 'title': title, 'content': content, 'votes':votes}
     fetch('http://localhost:9000/posts',
         {
           method:'POST',
@@ -18,6 +19,7 @@ function PostInput(props) {
       .then(res => res.json())
       .then(data => console.log(data))
     props.notifyParent();
+    props.setCount(props.count+1);
   }
   return (
     <div className="">

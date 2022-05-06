@@ -5,6 +5,7 @@ import PostInput from './Posts/PostInput';
 function Posts() {
   const [posts, setPosts] = useState([]);
   const [update, setUpdate] = useState(0);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     fetch('http://localhost:9000/posts')
@@ -20,7 +21,7 @@ function Posts() {
 
   return (
     <div>
-      <PostInput notifyParent = {rerender}/>
+      <PostInput notifyParent = {rerender} count={count} setCount={setCount}/>
       <PostDisplay posts={posts}/>
     </div>
   );

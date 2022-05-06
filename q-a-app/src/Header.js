@@ -19,6 +19,12 @@ class Header extends Component{
             class="btn btn-outline-primary btn-lg w-75">
             Login
           </button>
+          <button
+            className="RegisterButton"
+            type="button"
+            class="btn btn-outline-primary btn-lg w-75 mt-2">
+            Sign Up
+          </button>
         </div>
       </div>
       </div>

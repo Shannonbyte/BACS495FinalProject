@@ -5,7 +5,8 @@ function PostDisplay(props) {
 
     const [posts, setPosts] = useState([]);
     const [update, setUpdate] = useState(0);
-    const [answer, setAnswer] = useState(0);
+    const [answers, setAnswer] = useState(0);
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
         fetch('http://localhost:9000/posts')
@@ -29,10 +30,10 @@ function PostDisplay(props) {
             .then(console.log("finished"))
       }
 
-  const answerQuestion = (id, answers) =>{
+  const answerQuestion = (id, setAnswer) =>{
     var newAnswer = answers == null ? 1 : answers + 1;
     var updatepost = {'_id':id, 'answers' : newAnswer}
-    fetch('http://localhost:9000/posts',
+    fetch('http://localhost:9000/posts/',
         {
             method:'PUT',
             body: JSON.stringify(updatepost),
